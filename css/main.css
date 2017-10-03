@@ -1,0 +1,60 @@
+/* Body */
+body {
+
+}
+
+/*Font Styles*/
+h1{
+
+}
+h2{
+
+}
+h3{
+
+}
+h4{
+
+}
+h5{
+
+}
+p{
+
+}
+
+/* Symbol */
+#symbol {
+  background-color: WHITESMOKE;
+}
+
+/* Simple Moving average */
+#sma {
+  background-color: LAVENDER;
+}
+
+/* Volume */
+#volume {
+  background-color: WHITESMOKE;
+
+}
+
+/* Moving Average Convergence Divergeence */
+#macd {
+  background-color: LAVENDER;
+}
+
+/* Stochastic */ 
+#sto {
+  background-color: WHITESMOKE;
+}
+
+/* Sector */
+#sector {
+  background-color: LAVENDER;
+}
+
+footer {
+  color: #fff;
+}
+
