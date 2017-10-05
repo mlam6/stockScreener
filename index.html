@@ -1,154 +1,247 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <title>stockScreener</title>
+<head>
 
-    <!-- Tab Logo -->
-    <!-- ADD LOGO HERE -->
-    <link rel="icon" href="image/"> 
+  <meta charset="utf-8">
+  <title>stockScreener</title>
 
-    <!-- Custom CSS -->
-    <link href="css/main.css" rel="stylesheet">
+  <!-- Tab Logo -->
+  <!-- TODO: Insert tab logo image here -->
+  <link rel="icon" href="image/">
 
-    <!-- Bootstrap Core CSS -->
-    <link href="css/bootstrap.css" rel="stylesheet">
+  <!-- Bootstrap Core CSS -->
+  <link href="css/bootstrap.css" rel="stylesheet">
 
-  </head>
-  <body>
+  <!-- Font Awesome -->
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 
-     <!-- Nav --> 
-     <Nav>
-        <ul class="nav navbar-nav navbar-right">
-           <li id="nav-1"><a href="#home">Home</a></li>
-           <li id="nav-2"><a href="#watchlistLink">Watchlist</a></li>
-           <li id="nav-3"><a href="#generateLink">Generate</a></li>
-        </ul>
-     </Nav>    
+  <!-- Custom CSS -->
+  <link href="css/main.css" rel="stylesheet">
 
-     <!-- Symbol -->
-     <div id="symbol"> 
-        <h2>Symbol</h2> 
-     </div>
- 
-     <!-- SMA -->
-     <div id="sma">
-        <div class="row">
-           <div class="col-lg-7 col-md-4 col-sm-6" align="middle">
-              <div class="indicator">
-		 <h2>SMA</h2>
-                 <h4 id="projectTitle">Graph</h4>
-              </div>
-           </div>
- 	   <div class="col-lg-3 col-md-4 col-sm-6" align="middle">
-              <div class="indicator">
-                 <h4 id="projecttitle">Value</h4>
-              </div>
-           </div>
-           <div class="col-lg-2 col-md-4 col-sm-6" align="middle">
-              <div class="indicator">
-                 <h4 id="projectTitle">Green / Red</h4>
-              </div>
-           </div>
+</head>
+
+<body>
+  <div id="wrapper">
+
+    <div style="height:50px"></div>
+
+    <!-- Nav -->
+    <nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
+      <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+            <span class="sr-only">Toggle navigation</span>
+            <img class="menu" src="img/hamburger.png">
+          </button>
+
+          <!--TODO: Put brand name here -->
+          <a class="navbar-brand page-scroll" href="#home"></a>
         </div>
-     </div>
-
-     <!-- Volume --> 
-     <div id="volume">
-        <div class="row">
-           <div class="col-lg-7 col-md-4 col-sm-6" align="middle">
-              <div class="indicator">
-		 <h2>Volume</h2>
-                 <h4 id="projectTitle">Graph</h4>
-              </div>
-           </div>
- 	   <div class="col-lg-3 col-md-4 col-sm-6" align="middle">
-              <div class="indicator">
-                 <h4 id="projecttitle">Value</h4>
-              </div>
-           </div>
-           <div class="col-lg-2 col-md-4 col-sm-6" align="middle">
-              <div class="indicator">
-                 <h4 id="projectTitle">Green / Red</h4>
-              </div>
-           </div>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav navbar-right">
+            <li id="nav-1"><a href="#home">Home</a></li>
+            <li id="nav-2"><a href="#watchlistLink">Watchlist</a></li>
+            <li id="nav-3"><a href="#generateLink">Generate</a></li>
+          </ul>
         </div>
+      </div>
+    </nav>
 
-     </div>
+    <!-- Homepage -->
+    <div id="home">
+      <div id="page-content-wrapper" class="home">
+        <div class="container-fluid">
+          <div class="row">
 
-     <!-- MACD --> 
-     <div id="macd">
-        <div class="row">
-           <div class="col-lg-7 col-md-4 col-sm-6" align="middle">
-              <div class="indicator">
-		 <h2>MACD</h2>
-                 <h4 id="projectTitle">Graph</h4>
+            <!-- Symbol -->
+            <div id="symbol">
+              <h2>Symbol</h2>
+            </div>
+
+            <hr>
+
+            <!-- SMA -->
+            <div id="sma">
+              <div class="row">
+                <div class="col-lg-6 col-md-4 col-sm-6" align="middle">
+                  <div class="box">
+                    <div class="indicator">
+                      <h4 id="indicatorTitle">SMA </br> Graph</h4>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-5 col-md-4 col-sm-6" align="middle">
+                  <div class="box">
+                    <div class="indicator">
+                      <h4 id="indicatorValue">Value</h4>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-1 col-md-4 col-sm-6" align="middle" style="background-color: green">
+                  <div class="box">
+                    <div class="indicator">
+                      <h4 id="redGreen">Green / Red</h4>
+                    </div>
+                  </div>
+                </div>
               </div>
-           </div>
- 	   <div class="col-lg-3 col-md-4 col-sm-6" align="middle">
-              <div class="indicator">
-                 <h4 id="projecttitle">Value</h4>
+            </div>
+
+            <hr color="#CCD1D1">
+
+            <!-- Volume -->
+            <div id="volume">
+              <div class="row">
+                <div class="col-lg-6 col-md-4 col-sm-6" align="middle">
+                  <div class="box">
+                    <div class="indicator">
+                      <h4 id="indicatorTitle">Volume </br> Graph</h4>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-5 col-md-4 col-sm-6" align="middle">
+                  <div class="box">
+                    <div class="indicator">
+                      <h4 id="indicatorValue">Value</h4>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-1 col-md-4 col-sm-6" align="middle" style="background-color: green">
+                  <div class="box">
+                    <div class="indicator">
+                      <h4 id="redGreen">Green / Red</h4>
+                    </div>
+                  </div>
+                </div>
               </div>
-           </div>
-           <div class="col-lg-2 col-md-4 col-sm-6" align="middle">
-              <div class="indicator">
-                 <h4 id="projectTitle">Green / Red</h4>
+            </div>
+
+            <hr color="#CCD1D1">
+
+            <!-- MACD -->
+            <div id="macd">
+              <div class="row">
+                <div class="col-lg-6 col-md-4 col-sm-6" align="middle">
+                  <div class="box">
+                    <div class="indicator">
+                      <h4 id="indicatorTitle">MACD </br> Graph</h4>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-5 col-md-4 col-sm-6" align="middle">
+                  <div class="box">
+                    <div class="indicator">
+                      <h4 id="indicatorValue">Value</h4>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-1 col-md-4 col-sm-6" align="middle" style="background-color: green">
+                  <div class="box">
+                    <div class="indicator">
+                      <h4 id="redGreen">Green / Red</h4>
+                    </div>
+                  </div>
+                </div>
               </div>
-           </div>
+            </div>
+
+            <hr color="#CCD1D1">
+
+            <!-- Stochastic -->
+            <div id="sto">
+              <div class="row">
+                <div class="col-lg-6 col-md-4 col-sm-6" align="middle">
+                  <div class="box">
+
+                    <div class="indicator">
+                      <h4 id="indicatorTitle">Stochastic </br> Graph</h4>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-5 col-md-4 col-sm-6" align="middle">
+                  <div class="box">
+
+                    <div class="indicator">
+                      <h4 id="indicatorValue">Value</h4>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-1 col-md-4 col-sm-6" align="middle" style="background-color: green">
+                  <div class="box">
+                    <div class="indicator">
+                      <h4 id="redGreen">Green / Red</h4>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <hr color="#CCD1D1">
+
+            <!-- Sector -->
+            <div id="sector">
+              <div class="row">
+                <div class="col-lg-6 col-md-4 col-sm-6" align="middle">
+                  <div class="box">
+                    <div class="indicator">
+                      <h4 id="indicatorTitle">Sector </br> Sector </br> # of Industries</h4>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-5 col-md-4 col-sm-6" align="middle">
+                  <div class="box">
+                    <div class="indicator">
+                      <h4 id="indicatorValue">Last % change</h4>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-1 col-md-4 col-sm-6" align="middle" style="background-color: green">
+                  <div class="box">
+                    <div class="indicator">
+                      <h4 id="redGreen">Green / Red</h4>
+                    </div>
+                    </div<
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-     </div>
+        <!-- site #wrapper -->
+      </div>
 
-     <!-- Stochastic --> 
-     <div id="sto">
-        <div class="row">
-           <div class="col-lg-7 col-md-4 col-sm-6" align="middle">
-              <div class="indicator">
-		 <h2>Stochastic</h2>
-                 <h4 id="projectTitle">Graph</h4>
-              </div>
-           </div>
- 	   <div class="col-lg-3 col-md-4 col-sm-6" align="middle">
-              <div class="indicator">
-                 <h4 id="projecttitle">Value</h4>
-              </div>
-           </div>
-           <div class="col-lg-2 col-md-4 col-sm-6" align="middle">
-              <div class="indicator">
-                 <h4 id="projectTitle">Green / Red</h4>
-              </div>
-           </div>
-        </div>
 
-     </div>
-    
-     <!-- Sector -->
-     <div id="sector">
-        <div class="row">
-           <div class="col-lg-7 col-md-4 col-sm-6" align="middle">
-              <div class="indicator">
-		 <h2>Sector</h2>
-                 <h4 id="projectTitle">Sector</h4>
-		 <h4># of Industries</h4>
-              </div>
-           </div>
- 	   <div class="col-lg-3 col-md-4 col-sm-6" align="middle">
-              <div class="indicator">
-                 <h4 id="projecttitle">Last % change</h4>
-              </div>
-           </div>
-           <div class="col-lg-2 col-md-4 col-sm-6" align="middle">
-              <div class="indicator">
-                 <h4 id="projectTitle">Green / Red</h4>
-              </div>
-           </div>
-        </div>
+      <!-- jQuery CDN -->
+      <script src="https://code.jquery.com/jquery-3.2.1.min.js"
+      integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+      crossorigin="anonymous"></script>
 
-     </div>
+      <!-- Bootstrap Core JavaScript -->
+      <script src="js/bootstrap.js"></script>
 
-  </body>
+      <!-- jQuery -->
+      <script type="text/javascript" src="js/app.js"></script>
 
-  <footer>
-     <center>&copy;2017</center>
-  </footer>
+      <!-- Smooth Scroll Plugin -->
+      <script type="text/javascript" src="js/smooth-scroll.min.js"></script>
+
+      <!-- Scroll Reveal -->
+      <script src="https://unpkg.com/scrollreveal@3.3.2/dist/scrollreveal.min.js"></script>
+
+      <!-- Hidden Menu (Large groups and Parties) -->
+      <script type="text/javascript" src="js/main.js"></script>
+
+      <!-- Bootstrap Match Height -->
+      <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery.matchHeight/0.7.0/jquery.matchHeight-min.js'></script>
+      <script src="js/index.js"></script>
+
+   </body>
+
+   <footer class="text-center">
+      <p>&copy; 2017</p>
+   </footer>
 
 </html>
+

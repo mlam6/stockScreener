@@ -1,7 +1,73 @@
-/* Body */
-body {
 
+body {
+   overflow-x: hidden;
+   font-family: 'Karla', Helvetica, sans-serif;
+   -webkit-font-smoothing: antialiased;
+   background: white;
+   transition: background 0.15s ease;
 }
+
+/*Nav Styles*/
+button .navbar-toggle .collapsed #menu{
+  height: 15px;
+ }
+.navbar-default {
+    background-color: rgba(255,255,255, 0.5);
+    border-color: rgba(34, 34, 34, 0.05);
+    font-family: 'Karla', Helvetica, sans-serif;
+    -webkit-transition: all 0.35s;
+    -moz-transition: all 0.35s;
+    transition: all 0.35s;
+}
+.navbar-default .navbar-header .navbar-brand {
+    font-family: 'Karla', Helvetica, sans-serif;
+}
+.navbar-default .navbar-header .navbar-toggle {
+    background-color: rgba(255,255,255,0.3);
+}
+.navbar-default .nav > li > a,
+.navbar-default .nav > li > a:focus {
+  font-size: 1.5rem;
+  color: #222222;
+}
+.navbar-default .nav > li.active > a:hover,
+.navbar-default .nav > li.active > a:focus:hover {
+  background-color: transparent;
+}
+@media (min-width: 768px) {
+  .navbar-default {
+    background-color: #333;
+    border-color: #333;
+  }
+  .navbar-default .navbar-header .navbar-brand {
+    color: rgba(255, 255, 255, 0.7);
+  }
+  .navbar-default .navbar-header .navbar-brand:hover,
+  .navbar-default .navbar-header .navbar-brand:focus {
+    color: #ccc;
+  }
+  .navbar-default .nav > li > a,
+  .navbar-default .nav > li > a:focus {
+    color: rgba(255, 255, 255, 0.7);
+  }
+  .navbar-default .nav > li > a:hover,
+  .navbar-default .nav > li > a:focus:hover {
+    color: #ccc;
+  }
+  .navbar-default.affix {
+    background-color: white;
+    border-color: rgba(34, 34, 34, 0.05);
+  }
+  .navbar-default.affix .navbar-header .navbar-brand {
+    font-size: 14px;
+  }
+  .navbar-default.affix .nav > li > a,
+  .navbar-default.affix .nav > li > a:focus {
+    color: #222222;
+  }
+}
+
+
 
 /*Font Styles*/
 h1{
@@ -23,38 +89,45 @@ p{
 
 }
 
-/* Symbol */
-#symbol {
-  background-color: WHITESMOKE;
+/*Home*/
+#redGreen {
+  background-color: GREEN;
+  opacity: 0.8;
 }
 
-/* Simple Moving average */
-#sma {
-  background-color: LAVENDER;
+
+
+/* Footer */
+footer{
+  background-color: #333;
+}
+footer p {
+  padding: 5px 0 5px 0;
+  margin: 0;
+  color: #ccc;
+  background-color: #333;
 }
 
-/* Volume */
-#volume {
-  background-color: WHITESMOKE;
+
+/*Media Queries*/
+
+/*Desktop*/
+@media (max-width: 1200px){
 
 }
+/*Laptop*/
+@media (max-width: 1024px) and (min-width: 768px) {
 
-/* Moving Average Convergence Divergeence */
-#macd {
-  background-color: LAVENDER;
 }
+/*iPad*/
+@media (max-width: 768px) and (min-width: 480px) {
 
-/* Stochastic */ 
-#sto {
-  background-color: WHITESMOKE;
 }
+/*Large Mobile*/
+@media (max-width: 480px){
 
-/* Sector */
-#sector {
-  background-color: LAVENDER;
 }
+/*Mobile*/
+@media (max-width: 320px) {
 
-footer {
-  color: #fff;
 }
-
