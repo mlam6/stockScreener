@@ -22,7 +22,6 @@ class Worker(threading.Thread):
       self.isRunning = False
 
 
-
 # Sort and remove whitespace in NASDAQ file
 file = open("input/NASDAQ.txt", "r")
 text = file.read()
@@ -47,8 +46,6 @@ def getVol(sym):
     if ((data["volume"].iloc[-1]) > 250000).all():   
         finalList.put(sym)
 
-
-# Threads created to process all the symbols
 def getVolAll():
     global finalList
 
@@ -72,6 +69,10 @@ def getVolAll():
     for thrd in threadPool:
         thrd.join()
 
+    tempList = list(finalList.queue)
+    print ("Vol List:")
+    for item in tempList:
+        print item
 
 # If SMA is > quote
 def getSMA():
@@ -92,6 +93,10 @@ def getSMA():
             print ("passed SMA", sym)
             finalList.get(sym)
 
+    tempList = list(finalList.queue)
+    print ("SMA List:")
+    for item in tempList:
+        print item
 
 # If MACD is > 0
 def getMACD():
@@ -109,8 +114,13 @@ def getMACD():
         if len(data) == 0:
             continue
         if ((data["MACD_Hist"].iloc[-1]) < 0).all():
-            print("failed", sym, (data["MACD_Hist"].iloc[-1]))
+            print("failed MACD", sym, (data["MACD_Hist"].iloc[-1]))
             finalList.get(sym)    
+
+    tempList = list(finalList.queue)
+    print ("MACD List:")
+    for item in tempList:
+        print item
 
 
 # If Stochastic is > 75
@@ -129,7 +139,7 @@ def getSto():
         if len(data) == 0:
             continue
         if ((data["SlowK"].iloc[-1]) < 75).all():
-            print("failed", sym, (data["SlowK"].iloc[-1]))
+            print("failed Sto", sym, (data["SlowK"].iloc[-1]))
             finalList.get(sym)
 
     finalList = list(finalList.queue)
