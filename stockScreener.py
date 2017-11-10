@@ -15,9 +15,10 @@ class Worker(threading.Thread):
       self.symbol = None
    def run(self):
       self.isRunning = True
-      #print ("Starting",  self.name, "Processing", self.symbol)
+      print ("Starting",  self.name, "Processing", self.symbol)
       getVol(self.symbol)
-      #print ("Exiting", self.name, "Processed", self.symbol)
+      #getSMA(self.symbol)
+      print ("Exiting", self.name, "Processed", self.symbol)
       self.isRunning = False
 
 
@@ -31,18 +32,6 @@ listOfSymbols = map(lambda x: x.strip(), listOfSymbols)
 
 # Store symbols that passed tests
 finalList = Queue.Queue()
-garbage = Queue.Queue()
-
-# Split a list 
-def split(arr, size):
-    arrs = []
-    while len(arr) > size:
-        pice = arr[:size]
-        arrs.append(pice)
-        arr = arr[size:]
-    arrs.append(arr)
-
-    return arrs
 
 
 # If volume is > 250,000
@@ -57,9 +46,6 @@ def getVol(sym):
 
     if ((data["volume"].iloc[-1]) > 250000).all():   
         finalList.put(sym)
-        #print sym 
-    else:
-        garbage.put(sym)      
 
 
 # Threads created to process all the symbols
@@ -86,39 +72,77 @@ def getVolAll():
     for thrd in threadPool:
         thrd.join()
 
+
+# If SMA is > quote
+def getSMA():
+    global finalList
+
+    volList = list(finalList.queue)
+
+    for sym in volList:
+        ti = TechIndicators(key='GSD3E3P11LSBZG5O', output_format='pandas')
+        ts=TimeSeries(key='GSD3E3P11LSBZG5O', output_format='pandas')
+        try:
+            data, meta_data = ti.get_sma(sym)
+            data2, meta_data2 = ts.get_daily(symbol=sym)
+        except Exception:
+            return
+
+        if ((data["SMA"].iloc[-1]) < data2["close"].iloc[-1]).all():
+            print ("passed SMA", sym)
+            finalList.get(sym)
+
+
+# If MACD is > 0
+def getMACD():
+    global finalList
+    
+    smaList = list(finalList.queue)
+
+    for sym in smaList:
+        ti = TechIndicators(key='GSD3E3P11LSBZG5O', output_format='pandas')
+        try:
+            data, meta_data = ti.get_macd(symbol=sym, interval='monthly')
+        except Exception:
+            return
+
+        if len(data) == 0:
+            continue
+        if ((data["MACD_Hist"].iloc[-1]) < 0).all():
+            print("failed", sym, (data["MACD_Hist"].iloc[-1]))
+            finalList.get(sym)    
+
+
+# If Stochastic is > 75
+def getSto():
+    global finalList
+
+    macdList = list(finalList.queue)
+  
+    for sym in macdList:
+        ti = TechIndicators(key='GSD3E3P11LSBZG5O', output_format='pandas')
+        try:
+             data, meta_data = ti.get_stoch(symbol=sym, interval='monthly')
+        except Exception:
+            return
+
+        if len(data) == 0:
+            continue
+        if ((data["SlowK"].iloc[-1]) < 75).all():
+            print("failed", sym, (data["SlowK"].iloc[-1]))
+            finalList.get(sym)
+
     finalList = list(finalList.queue)
     print ("Final List:")
     for item in finalList:
         print item
 
 
-# If SMA is > quote
-#def getSMA():
+def main():
+    getVolAll()
+    getSMA()
+    getMACD()
+    getSto()
 
-
-# If MACD is > 0
-#def getMACD():
-
-
-# If Stochastic is > 75
-#def getSto():
-
-
-# Return list if symbol passes Vol, SMA, MACD, and Stochastic
-#def returnList():
-
-
-# returnList()
-
-''' TESTING
-------------------'''
-#getVol()
-getVolAll()
-#getSMA()
-#getMACD()
-#getSto()
-#split(listOfSymbols, 4)
-
-
-
-
+if __name__ == "__main__":
+    main()
