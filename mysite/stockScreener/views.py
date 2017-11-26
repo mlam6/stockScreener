@@ -7,7 +7,8 @@ from django.views.generic import TemplateView
 # Create your views here.
 class HomePageView(TemplateView):
     def get(self, request, **kwargs):
-        return render(request, 'index.html', context=None)
+        template_name = "index.html"
+        return render(request, 'index.html', context=None)       
 
 class WatchlistPageView(TemplateView):
     template_name = "watchlist.html"

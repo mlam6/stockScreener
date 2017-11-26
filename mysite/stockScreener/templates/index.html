@@ -34,7 +34,7 @@
         <div class="navbar-header">
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
             <span class="sr-only">Toggle navigation</span>
-            <img class="menu" src="img/hamburger.png">
+            <img class="menu" src="{% static 'img/hamburger.png' %}">
           </button>
 
           <!--TODO: Put brand name here -->
@@ -43,7 +43,7 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav navbar-right">
-            <li id="nav-1"><a href="#home">Home</a></li>
+            <li id="nav-1"><a href="/homepage/">Home</a></li>
             <li id="nav-2"><a href="/watchlist/">Watchlist</a></li>
             <li id="nav-3"><a href="/generate/">Generate</a></li>
           </ul>
@@ -221,23 +221,23 @@
       crossorigin="anonymous"></script>
 
       <!-- Bootstrap Core JavaScript -->
-      <script src="{{ STATIC_URL }}js/bootstrap.js"></script>
+      <script src="{% static 'js/bootstrap.js' %}"></script>
 
       <!-- jQuery -->
-      <script type="text/javascript" src="{{ STATIC_URL }}js/app.js"></script>
+      <script type="text/javascript" src="{% static 'js/app.js' %}"></script>
 
       <!-- Smooth Scroll Plugin -->
-      <script type="text/javascript" src="{{ STATIC_URL }}js/smooth-scroll.min.js"></script>
+      <script type="text/javascript" src="{% static 'js/smooth-scroll.min.js' %}"></script>
 
       <!-- Scroll Reveal -->
       <script src="https://unpkg.com/scrollreveal@3.3.2/dist/scrollreveal.min.js"></script>
 
       <!-- Hidden Menu (Large groups and Parties) -->
-      <script type="text/javascript" src="{{ STATIC_URL }}js/main.js"></script>
+      <script type="text/javascript" src="{% static 'js/main.js' %}"></script>
 
       <!-- Bootstrap Match Height -->
       <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery.matchHeight/0.7.0/jquery.matchHeight-min.js'></script>
-      <script src="{{ STATIC_URL }}js/index.js"></script>
+      <script src="{% static 'js/index.js' %}"></script>
 
    </body>
 

@@ -1,7 +1,7 @@
 $(window).on("scroll touchmove", function() {
 
     // Change .home navbar css styles
-    if ($(document).scrollTop() >= $("#home").position().top) {
+    if ($(document).scrollTop() >= $("/homepage/").position().top) {
       $('body').css('background-color','white');
       $('#mainNav').css('background-color','#333');
       $('#mainNav li a').css('color','#ccc');
@@ -13,7 +13,7 @@ $(window).on("scroll touchmove", function() {
       $('a.navbar-brand.page-scroll').css('color','#ccc');
     }
     // Change .about background/navbar css styles
-    if ($(document).scrollTop() >= $("#watchlist").position().top) {
+    if ($(document).scrollTop() >= $("/watchlist/").position().top) {
         console.log("About escapes me!");
         $('body').css('background-color','white');
         $('#mainNav').css('background-color','#333');
@@ -26,7 +26,7 @@ $(window).on("scroll touchmove", function() {
         $('a.navbar-brand.page-scroll').css('color','#ccc');
     }
     // Change .menu background/navbar css styles
-    if($(document).scrollTop() >= $("#generate").position().top) {
+    if($(document).scrollTop() >= $("/generate/").position().top) {
         console.log("Menu escapes me!");
         $('body').css('background-color','white');
         $('#mainNav').css('background-color','#333');
