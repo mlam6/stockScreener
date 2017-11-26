@@ -90,7 +90,7 @@ def getSMA():
             return
 
         if ((data["SMA"].iloc[-1]) < data2["close"].iloc[-1]).all():
-            print ("passed SMA", sym)
+            print ("failed SMA", sym)
             finalList.get(sym)
 
     tempList = list(finalList.queue)
