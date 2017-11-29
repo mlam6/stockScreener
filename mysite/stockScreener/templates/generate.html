@@ -8,8 +8,7 @@
   <title>stockScreener</title>
 
   <!-- Tab Logo -->
-  <!-- TODO: Insert tab logo image here -->
-  <link rel="icon" href="{% static 'image/' %}">
+  <link rel="icon" href="{% static 'img/logo.png' %}">
 
   <!-- Bootstrap Core CSS -->
   <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
@@ -40,12 +39,13 @@
           <!--TODO: Put brand name here -->
           <a class="navbar-brand page-scroll" href="#home"></a>
         </div>
+        
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav navbar-right">
             <li id="nav-1"><a href="/homepage/">Home</a></li>
             <li id="nav-2"><a href="/watchlist/">Watchlist</a></li>
-            <li id="nav-3"><a href="/generate/">Generate</a></li>
+            <li id="nav-3"><a href="/generate/">GENERATE</a></li>
           </ul>
         </div>
       </div>
@@ -56,9 +56,12 @@
       <div id="page-content-wrapper" class="home">
         <div class="container-fluid">
           <div class="row">
-            <h6 style="text-align: center">**This information is for educational purposes and is not a</br>
-                investment recommendation nor to be representative of professional</br>
-                expertise, but to be used as a learning opportunity around trading** </h6>
+            <div class="container">  
+              <h2>Generate</h2>
+              <form action="submit" method="post">
+                <input type="submit" value="Submit">
+              </form> 
+           </div>
           </div>
         </div>
         <!-- site #wrapper -->

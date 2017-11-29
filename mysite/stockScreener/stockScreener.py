@@ -23,7 +23,7 @@ class Worker(threading.Thread):
 
 
 # Sort and remove whitespace in NASDAQ file
-file = open("input/NASDAQ.txt", "r")
+file = open("/Users/mlam/Box Sync/fall2017/CSCI 250/StockScreener/mysite/stockScreener/input/NASDAQ.txt", "r")
 text = file.read()
 listOfSymbols = text.split("\n")
 listOfSymbols.sort()
