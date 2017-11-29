@@ -17,7 +17,6 @@ class Worker(threading.Thread):
       self.isRunning = True
       print ("Starting",  self.name, "Processing", self.symbol)
       getVol(self.symbol)
-      #getSMA(self.symbol)
       print ("Exiting", self.name, "Processed", self.symbol)
       self.isRunning = False
 
@@ -25,6 +24,7 @@ class Worker(threading.Thread):
 # Sort and remove whitespace in NASDAQ file
 file = open("/Users/mlam/Box Sync/fall2017/CSCI 250/StockScreener/mysite/stockScreener/input/NASDAQ.txt", "r")
 text = file.read()
+file.close()
 listOfSymbols = text.split("\n")
 listOfSymbols.sort()
 listOfSymbols = map(lambda x: x.strip(), listOfSymbols)
@@ -92,6 +92,8 @@ def getSMA():
         if ((data["SMA"].iloc[-1]) < data2["close"].iloc[-1]).all():
             print ("failed SMA", sym)
             finalList.get(sym)
+        else: 
+            print("passed SMA", sym)
 
     tempList = list(finalList.queue)
     print ("SMA List:")
@@ -116,6 +118,8 @@ def getMACD():
         if ((data["MACD_Hist"].iloc[-1]) < 0).all():
             print("failed MACD", sym, (data["MACD_Hist"].iloc[-1]))
             finalList.get(sym)    
+        else: 
+            print("passed MACD", sym)
 
     tempList = list(finalList.queue)
     print ("MACD List:")
@@ -141,6 +145,8 @@ def getSto():
         if ((data["SlowK"].iloc[-1]) < 75).all():
             print("failed Sto", sym, (data["SlowK"].iloc[-1]))
             finalList.get(sym)
+        else: 
+            print("passed Sto", sym)
 
     finalList = list(finalList.queue)
     print ("Final List:")
@@ -153,6 +159,7 @@ def main():
     getSMA()
     getMACD()
     getSto()
+    return finalList
 
 if __name__ == "__main__":
     main()
