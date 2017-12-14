@@ -4,10 +4,10 @@ from . import views
 from .views import list
 
 urlpatterns = [
-    url(r'^$', views.HomePageView.as_view()),
-    url(r'^homepage/$', views.HomePageView.as_view()),
+    url(r'^$', views.homepage),
+    url(r'^homepage/$', views.homepage, name="homepage"),
     url(r'^watchlist/$', views.WatchlistPageView.as_view()),
-    url(r'^generate/$', views.GeneratePageView.as_view()),
+    url(r'^generate/$', views.generate),
     url(r'^list/$', list),
 ]
 

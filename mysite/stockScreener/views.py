@@ -3,22 +3,40 @@ from __future__ import unicode_literals
 from django.shortcuts import render
 from django.views.generic import TemplateView
 from django.http import HttpResponse
-from django.template import Template, Context
+from django.template import Template, Context, loader
 import stockScreener
+import lookup
 
-# Create your views here.
-class HomePageView(TemplateView):
-    def get(self, request, **kwargs):
-        template_name = "index.html"
-        return render(request, 'index.html', context=None)       
+
+def homepage(request):
+    symbol = ""
+    sma, vol, macd, sto = "", "", "", ""
+    if "symbol" in request.POST:
+        symbol = request.POST["symbol"]
+        sma = lookup.SMA(symbol)
+        vol = lookup.Vol(symbol)
+        macd = lookup.MACD(symbol)
+        sto = lookup.Sto(symbol)
+    params = dict()
+    params["symbol"] = symbol
+    params["sma"] = sma
+    params["vol"] = vol
+    params["macd"] = macd
+    params["sto"] = sto
+    template = loader.get_template("stockScreener/index.html")
+    return HttpResponse(template.render(params, request))
 
 class WatchlistPageView(TemplateView):
-    template_name = "watchlist.html"
+    template_name = "stockScreener/watchlist.html"
 
-class GeneratePageView(TemplateView):
-    template_name = "generate.html"
- 
 def list(request):
     returnList = stockScreener.main()
     printList = "<html><body>Results List:: %s.</body></html>" % returnList
     return HttpResponse(printList)
+
+
+def generate(request):
+    returnList = stockScreener.main()
+    params = {"stockList": returnList}
+    template = loader.get_template("stockScreener/generate.html")
+    return HttpResponse(template.render(params, request))

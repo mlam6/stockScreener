@@ -43,7 +43,7 @@ def getVol(sym):
     except Exception:
         return
 
-    if ((data["volume"].iloc[-1]) > 250000).all():   
+    if ((data["volume"].iloc[-1]) > 250000).all():
         finalList.put(sym)
 
 def getVolAll():
@@ -88,6 +88,11 @@ def getSMA():
             data2, meta_data2 = ts.get_daily(symbol=sym)
         except Exception:
             return
+        
+        if len(data) == 0:
+            finalList.get(sym)
+            print ("Missing SMA Data!", sym)
+            continue
 
         if ((data["SMA"].iloc[-1]) < data2["close"].iloc[-1]).all():
             print ("failed SMA", sym)
@@ -114,7 +119,10 @@ def getMACD():
             return
 
         if len(data) == 0:
+            finalList.get(sym)
+            print ("Misssing MACD Data!", sym)
             continue
+        
         if ((data["MACD_Hist"].iloc[-1]) < 0).all():
             print("failed MACD", sym, (data["MACD_Hist"].iloc[-1]))
             finalList.get(sym)    
@@ -141,6 +149,8 @@ def getSto():
             return
 
         if len(data) == 0:
+            print ("Misssing Sto Data!", sym)
+            finalList.get(sym)
             continue
         if ((data["SlowK"].iloc[-1]) < 75).all():
             print("failed Sto", sym, (data["SlowK"].iloc[-1]))
@@ -159,6 +169,9 @@ def main():
     getSMA()
     getMACD()
     getSto()
+
+    if len(finalList) == 0:
+        finalList.append("""We're sorry, we weren't able to find anything that matched your requirements. Please try again. """)
     return finalList
 
 if __name__ == "__main__":
