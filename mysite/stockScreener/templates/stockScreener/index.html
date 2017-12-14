@@ -27,7 +27,7 @@
     <div style="height:50px"></div>
 
     <!-- Nav -->
-    <nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
+    <nav id="mainNav" class="navbar navbar-inverse navbar-fixed-top">
       <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
@@ -39,7 +39,7 @@
           <!--TODO: Put brand name here -->
           <a class="navbar-brand page-scroll" href="#home"></a>
         </div>
-        
+
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav navbar-right">
@@ -61,7 +61,7 @@
             <div class="container">
               <div id="symbol">
                 <h2>Symbol</h2>
-                
+
                 <form action="{% url 'homepage' %}" method="post">
                 {% csrf_token %}
 
@@ -79,6 +79,8 @@
               </div>
             </div>
 
+            <!-- Symbol -->
+            <h3>{{symbol}}</h3>
             <hr>
 
             <!-- SMA -->
@@ -87,21 +89,25 @@
                 <div class="col-lg-6 col-md-4 col-sm-6" align="middle">
                   <div class="box">
                     <div class="indicator">
-                      <h4 id="indicatorTitle">SMA </br> Graph</h4>
+                      <div style="height:10px"></div>
+                      <h4 id="indicatorTitle">SMA</h4>
+                      <div style="height:10px"></div>
                     </div>
                   </div>
                 </div>
                 <div class="col-lg-5 col-md-4 col-sm-6" align="middle">
                   <div class="box">
                     <div class="indicator">
+                      <div style="height:10px"></div>
                       <h4 id="indicatorValue">{{sma}}</h4>
+                      <div style="height:10px"></div>
                     </div>
                   </div>
                 </div>
                 <div class="col-lg-1 col-md-4 col-sm-6" align="middle" style="background-color: green">
                   <div class="box">
                     <div class="indicator">
-                      <h4 id="redGreen">Green / Red</h4>
+                      <h4 id="redGreen"></h4>
                     </div>
                   </div>
                 </div>
@@ -116,21 +122,25 @@
                 <div class="col-lg-6 col-md-4 col-sm-6" align="middle">
                   <div class="box">
                     <div class="indicator">
-                      <h4 id="indicatorTitle">Volume </br> Graph</h4>
+                      <div style="height:10px"></div>
+                      <h4 id="indicatorTitle">Volume</h4>
+                      <div style="height:10px"></div>
                     </div>
                   </div>
                 </div>
                 <div class="col-lg-5 col-md-4 col-sm-6" align="middle">
                   <div class="box">
                     <div class="indicator">
+                      <div style="height:10px"></div>
                       <h4 id="indicatorValue">{{vol}}</h4>
+                      <div style="height:10px"></div>
                     </div>
                   </div>
                 </div>
                 <div class="col-lg-1 col-md-4 col-sm-6" align="middle" style="background-color: green">
                   <div class="box">
                     <div class="indicator">
-                      <h4 id="redGreen">Green / Red</h4>
+                      <h4 id="redGreen"></h4>
                     </div>
                   </div>
                 </div>
@@ -145,21 +155,25 @@
                 <div class="col-lg-6 col-md-4 col-sm-6" align="middle">
                   <div class="box">
                     <div class="indicator">
-                      <h4 id="indicatorTitle">MACD </br> Graph</h4>
+                      <div style="height:10px"></div>
+                      <h4 id="indicatorTitle">MACD</h4>
+                      <div style="height:10px"></div>
                     </div>
                   </div>
                 </div>
                 <div class="col-lg-5 col-md-4 col-sm-6" align="middle">
                   <div class="box">
                     <div class="indicator">
+                      <div style="height:10px"></div>
                       <h4 id="indicatorValue">{{macd}}</h4>
+                      <div style="height:10px"></div>
                     </div>
                   </div>
                 </div>
                 <div class="col-lg-1 col-md-4 col-sm-6" align="middle" style="background-color: green">
                   <div class="box">
                     <div class="indicator">
-                      <h4 id="redGreen">Green / Red</h4>
+                      <h4 id="redGreen"></h4>
                     </div>
                   </div>
                 </div>
@@ -175,7 +189,9 @@
                   <div class="box">
 
                     <div class="indicator">
-                      <h4 id="indicatorTitle">Stochastic </br> Graph</h4>
+                      <div style="height:10px"></div>
+                      <h4 id="indicatorTitle">Stochastic</h4>
+                      <div style="height:10px"></div>
                     </div>
                   </div>
                 </div>
@@ -183,45 +199,17 @@
                   <div class="box">
 
                     <div class="indicator">
+                      <div style="height:10px"></div>
                       <h4 id="indicatorValue">{{sto}}</h4>
+                      <div style="height:10px"></div>
                     </div>
                   </div>
                 </div>
                 <div class="col-lg-1 col-md-4 col-sm-6" align="middle" style="background-color: green">
                   <div class="box">
                     <div class="indicator">
-                      <h4 id="redGreen">Green / Red</h4>
+                      <h4 id="redGreen"></h4>
                     </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <hr color="#CCD1D1">
-
-            <!-- Sector -->
-            <div id="sector">
-              <div class="row">
-                <div class="col-lg-6 col-md-4 col-sm-6" align="middle">
-                  <div class="box">
-                    <div class="indicator">
-                      <h4 id="indicatorTitle">Sector </br> Sector </br> # of Industries</h4>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-lg-5 col-md-4 col-sm-6" align="middle">
-                  <div class="box">
-                    <div class="indicator">
-                      <h4 id="indicatorValue">Last % change</h4>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-lg-1 col-md-4 col-sm-6" align="middle" style="background-color: green">
-                  <div class="box">
-                    <div class="indicator">
-                      <h4 id="redGreen">Green / Red</h4>
-                    </div>
-                    </div<
                   </div>
                 </div>
               </div>
@@ -257,9 +245,4 @@
       <script src="{% static 'js/index.js' %}"></script>
 
    </body>
-
-   <footer class="text-center">
-      <p>&copy; 2017</p>
-   </footer>
-
 </html>
