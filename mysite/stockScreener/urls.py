@@ -8,6 +8,7 @@ urlpatterns = [
     url(r'^homepage/$', views.homepage, name="homepage"),
     url(r'^watchlist/$', views.WatchlistPageView.as_view()),
     url(r'^generate/$', views.generate),
+    url(r'^generate/results/$', views.generate),
     url(r'^list/$', list),
 ]
 

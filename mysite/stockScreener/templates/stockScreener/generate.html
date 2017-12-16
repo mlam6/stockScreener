@@ -39,7 +39,7 @@
           <!--TODO: Put brand name here -->
           <a class="navbar-brand page-scroll" href="#home"></a>
         </div>
-        
+
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav navbar-right">
@@ -56,14 +56,41 @@
       <div id="page-content-wrapper" class="home">
         <div class="container-fluid">
           <div class="row">
-            <div class="container">  
-              <h2>Generate</h2>
-                <hr>
-                {% for sym in stockList %}
-                  <li>
-                    {{sym}}
-                  </li>
-                {% endfor %}
+            <div class="container">
+
+
+              <div class="jumbotron">
+                <div class="container">
+                  <h1 class="headline">Discover The Best Performing Stock of the Day</h1>
+                  <p>Today the forecast seems positive. The DOW is on a rise.</p>
+                  <br>
+                  <div align="center"> <p><a class="btn btn-large btn-success outline circled" href="/generate/results/" role="button">Generate Today's List &raquo;</a> </p> </div>
+                  {% for sym in stockList %}
+                    <li>
+                      {{sym}}
+                    </li>
+                  {% endfor %}
+                </div>
+              </div>
+
+              <section class="call-to-action">
+                <div class="container">
+                  <div class="row">
+                    <div class="col-md-4">
+                      <h3><i class="fa fa-bar-chart" aria-hidden="true"></i> Create account</h3>
+                      <p>Keep your watchlist saved and see the performance over time. Get engaged with a community of stock-traders.</p>
+                    </div>
+                    <div class="col-md-4">
+                      <h3><i class="fa fa-sign-in" aria-hidden="true"></i> Log in</h3>
+                      <p>Already a member of our community? Log in now and get back to market analysis</p>
+                    </div>
+                    <div class="col-md-4">
+                      <h3><i class="fa fa-unlock" aria-hidden="true"></i> Ad Free</h3>
+                      <p>Update to Premium and you will be able to analyze the performance of your watchlist without being distracted by ads. Get our "golden" tips monthly and improve your portfolio</p>
+                    </div>
+                  </div>
+                </div>
+              </section>
            </div>
           </div>
         </div>

@@ -10,14 +10,16 @@ import lookup
 
 def homepage(request):
     symbol = ""
-    sma, vol, macd, sto = "", "", "", ""
+    sp, sma, vol, macd, sto = "", "Value", "Value", "Value", "Value"
     if "symbol" in request.POST:
         symbol = request.POST["symbol"]
+        sp = lookup.SMA(symbol)
         sma = lookup.SMA(symbol)
         vol = lookup.Vol(symbol)
         macd = lookup.MACD(symbol)
         sto = lookup.Sto(symbol)
     params = dict()
+    params["sp"] = sp
     params["symbol"] = symbol
     params["sma"] = sma
     params["vol"] = vol
@@ -36,7 +38,10 @@ def list(request):
 
 
 def generate(request):
-    returnList = stockScreener.main()
+    if request.path == "/generate/results/":
+        returnList = stockScreener.getResults()
+    else:
+        returnList = []
     params = {"stockList": returnList}
     template = loader.get_template("stockScreener/generate.html")
     return HttpResponse(template.render(params, request))

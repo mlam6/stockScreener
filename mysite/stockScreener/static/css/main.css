@@ -68,19 +68,17 @@ button .navbar-toggle .collapsed #menu{
 }
 
 
-
 /*Font Styles*/
 h1{
 
 }
 h2{
-
 }
 h3{
-  margin-left: 95px;
+  margin-left: 105px;
 }
 h4{
-
+  font-size: 20px;
 }
 h5{
 
@@ -89,18 +87,22 @@ p{
 
 }
 a:hover {
-  color: RED; 
+  color: RED;
   text-decoration:none;
 }
 
 /*Home*/
-#redGreen {
-  background-color: GREEN;
-  opacity: 0.8;
-}
 #symName {
   margin-left: 120px;
 }
+#heading {
+  margin-left:105px;
+}
+
+.autocomplete-suggestions { border: 1px solid #999; background: #fff; cursor: default; overflow: auto; }
+.autocomplete-suggestion { padding: 10px 5px; font-size: 1.2em; white-space: nowrap; overflow: hidden; }
+.autocomplete-selected { background: #f0f0f0; }
+.autocomplete-suggestions strong { font-weight: normal; color: #3399ff; }
 
 /*Media Queries*/
 

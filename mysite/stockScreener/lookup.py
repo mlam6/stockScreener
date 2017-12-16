@@ -2,6 +2,12 @@ from alpha_vantage.techindicators import TechIndicators
 from alpha_vantage.techindicators import TechIndicators
 from alpha_vantage.timeseries import TimeSeries
 
+#S&P500
+def SP(sym):
+    ts=TimeSeries(key='GSD3E3P11LSBZG5O', output_format='pandas')
+    data, meta_data2 = ts.get_daily(symbol=sym)
+    return (data2["close"].iloc[-1])
+
 #SMA
 def SMA(sym):
     ti = TechIndicators(key='GSD3E3P11LSBZG5O', output_format='pandas')

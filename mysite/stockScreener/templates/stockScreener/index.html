@@ -58,9 +58,10 @@
           <div class="row">
 
             <!-- Symbol -->
-            <div class="container">
+            <div class="container-float">
               <div id="symbol">
-                <h2>Symbol</h2>
+                <div style="height:20px"></div>
+                <h2 id="heading">Symbol</h2>
 
                 <form action="{% url 'homepage' %}" method="post">
                 {% csrf_token %}
@@ -68,7 +69,7 @@
                 <div class="row">
                 <div class="col-md-1"> </div>
                 <div class="col-md-3 form-group input-group-lg">
-                    <input type="text" class="form-control input-lg" name="symbol" id="symbol" placeholder="Symbol" />
+                    <input type="text" class="form-control input-lg" name="symbol" id="autocomplete" placeholder="Symbol" />
                 </div>
 
                 <div class="col-md-2">
@@ -76,12 +77,13 @@
                 </div>
                 <div class="col-md-5"> </div>
                 </form>
+
               </div>
             </div>
 
             <!-- Symbol -->
             <h3>{{symbol}}</h3>
-            <hr>
+            <hr width="90%">
 
             <!-- SMA -->
             <div id="sma">
@@ -89,32 +91,41 @@
                 <div class="col-lg-6 col-md-4 col-sm-6" align="middle">
                   <div class="box">
                     <div class="indicator">
-                      <div style="height:10px"></div>
+                      <div style="height:25px"></div>
                       <h4 id="indicatorTitle">SMA</h4>
-                      <div style="height:10px"></div>
+                      <div style="height:25px"></div>
                     </div>
                   </div>
                 </div>
                 <div class="col-lg-5 col-md-4 col-sm-6" align="middle">
                   <div class="box">
                     <div class="indicator">
-                      <div style="height:10px"></div>
-                      <h4 id="indicatorValue">{{sma}}</h4>
-                      <div style="height:10px"></div>
+                      <div style="height:25px"></div>
+                      <h4 id="smaValue">{{sma}}</h4>
+                      <div style="height:25px"></div>
                     </div>
                   </div>
                 </div>
-                <div class="col-lg-1 col-md-4 col-sm-6" align="middle" style="background-color: green">
+                <div class="col-lg-1 col-md-4 col-sm-6" align="middle" id=smaColor>
                   <div class="box">
                     <div class="indicator">
-                      <h4 id="redGreen"></h4>
+                      <script>
+
+                        var x = document.getElementById("smaValue");
+                        if (parseFloat(x.innerHTML) < parseFloat({{sp}})) {
+                            smaColor.style.background = "rgb(146, 43, 33)";
+                        } else {
+                            smaColor.style.background = "rgb(20, 90, 50)";
+                        }
+                            
+                      </script>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
 
-            <hr color="#CCD1D1">
+            <hr width="90%" color="#CCD1D1">
 
             <!-- Volume -->
             <div id="volume">
@@ -122,32 +133,41 @@
                 <div class="col-lg-6 col-md-4 col-sm-6" align="middle">
                   <div class="box">
                     <div class="indicator">
-                      <div style="height:10px"></div>
+                      <div style="height:25px"></div>
                       <h4 id="indicatorTitle">Volume</h4>
-                      <div style="height:10px"></div>
+                      <div style="height:25px"></div>
                     </div>
                   </div>
                 </div>
                 <div class="col-lg-5 col-md-4 col-sm-6" align="middle">
                   <div class="box">
                     <div class="indicator">
-                      <div style="height:10px"></div>
-                      <h4 id="indicatorValue">{{vol}}</h4>
-                      <div style="height:10px"></div>
+                      <div style="height:25px"></div>
+                      <h4 id="volValue">{{vol}}</h4>
+                      <div style="height:25px"></div>
                     </div>
                   </div>
                 </div>
-                <div class="col-lg-1 col-md-4 col-sm-6" align="middle" style="background-color: green">
-                  <div class="box">
+                <div class="col-lg-1 col-md-4 col-sm-6" align="middle" id="volColor">
+                  <div class="box" >
                     <div class="indicator">
-                      <h4 id="redGreen"></h4>
+                      <script>
+
+                        var x = document.getElementById("volValue");
+                        if (parseFloat(x.innerHTML) < 250000) {
+                            volColor.style.background = "rgb(146, 43, 33)";
+                        } else {
+                            volColor.style.background = "rgb(20, 90, 50)";
+                        }
+                            
+                      </script>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
 
-            <hr color="#CCD1D1">
+            <hr width="90%" color="#CCD1D1">
 
             <!-- MACD -->
             <div id="macd">
@@ -155,32 +175,41 @@
                 <div class="col-lg-6 col-md-4 col-sm-6" align="middle">
                   <div class="box">
                     <div class="indicator">
-                      <div style="height:10px"></div>
+                      <div style="height:25px"></div>
                       <h4 id="indicatorTitle">MACD</h4>
-                      <div style="height:10px"></div>
+                      <div style="height:25px"></div>
                     </div>
                   </div>
                 </div>
                 <div class="col-lg-5 col-md-4 col-sm-6" align="middle">
                   <div class="box">
                     <div class="indicator">
-                      <div style="height:10px"></div>
-                      <h4 id="indicatorValue">{{macd}}</h4>
-                      <div style="height:10px"></div>
+                      <div style="height:25px"></div>
+                      <h4 id="macdValue">{{macd}}</h4>
+                      <div style="height:25px"></div>
                     </div>
                   </div>
                 </div>
-                <div class="col-lg-1 col-md-4 col-sm-6" align="middle" style="background-color: green">
+                <div class="col-lg-1 col-md-4 col-sm-6" align="middle" id="macdColor">
                   <div class="box">
                     <div class="indicator">
-                      <h4 id="redGreen"></h4>
+                      <script>
+
+                        var x = document.getElementById("macdValue");
+                        if (parseFloat(x.innerHTML) < 0) {
+                            macdColor.style.background = "rgb(146, 43, 33)";
+                        } else {
+                            macdColor.style.background = "rgb(20, 90, 50)";
+                        }
+                            
+                      </script>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
 
-            <hr color="#CCD1D1">
+            <hr width="90%" color="#CCD1D1">
 
             <!-- Stochastic -->
             <div id="sto">
@@ -189,9 +218,9 @@
                   <div class="box">
 
                     <div class="indicator">
-                      <div style="height:10px"></div>
+                      <div style="height:25px"></div>
                       <h4 id="indicatorTitle">Stochastic</h4>
-                      <div style="height:10px"></div>
+                      <div style="height:25px"></div>
                     </div>
                   </div>
                 </div>
@@ -199,16 +228,25 @@
                   <div class="box">
 
                     <div class="indicator">
-                      <div style="height:10px"></div>
-                      <h4 id="indicatorValue">{{sto}}</h4>
-                      <div style="height:10px"></div>
+                      <div style="height:25px"></div>
+                      <h4 id="stoValue">{{sto}}</h4>
+                      <div style="height:25px"></div>
                     </div>
                   </div>
                 </div>
-                <div class="col-lg-1 col-md-4 col-sm-6" align="middle" style="background-color: green">
+                <div class="col-lg-1 col-md-4 col-sm-6" align="middle" id="stoColor">
                   <div class="box">
                     <div class="indicator">
-                      <h4 id="redGreen"></h4>
+                      <script>
+
+                        var x = document.getElementById("stoValue");
+                        if (parseFloat(x.innerHTML) < 0) {
+                            stoColor.style.background = "rgb(146, 43, 33)";
+                        } else {
+                            stoColor.style.background = "rgb(20, 90, 50)";
+                        }
+                            
+                      </script>
                     </div>
                   </div>
                 </div>
@@ -243,6 +281,11 @@
       <!-- Bootstrap Match Height -->
       <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery.matchHeight/0.7.0/jquery.matchHeight-min.js'></script>
       <script src="{% static 'js/index.js' %}"></script>
+
+      <!-- Autocomplete -->
+      <script type="text/javascript" src="{% static 'js/jquery-1.9.1.min.js' %}"></script>
+      <script type="text/javascript" src="{% static 'js/jquery.autocomplete.min.js' %}"></script>
+      <script type="text/javascript" src="{% static 'js/symbol-autocomplete.js' %}"></script>
 
    </body>
 </html>
